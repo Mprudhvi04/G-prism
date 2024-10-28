@@ -1,0 +1,148 @@
+@import "primeicons/primeicons.css";
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.form-group select,
+.form-group input[type="radio"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group input[type="radio"] {
+    width: auto; /* Make sure the radio button itself is not too wide */
+    margin-right: 10px; /* Space between the radio button and label */
+}
+
+.form-group .radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .radio-group label {
+    margin-right: 20px;
+    font-weight: normal;
+}
+
+.form-group .radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+.form-group .radio-group input[type="radio"] {
+    display: none; 
+}
+
+.form-group .radio-group label {
+    position: relative;
+    padding-left: 30px; 
+    cursor: pointer;
+}
+
+/* Custom dot */
+.form-group .radio-group label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+}
+
+
+.form-group .radio-group input[type="radio"]:checked + label::before {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.form-group .radio-group input[type="radio"]:checked + label::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+/* Highlight and center the dialog */
+.p-dialog {
+    z-index: 10001;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7); /* Glowing effect */
+    border: 2px solid rgba(0, 123, 255, 0.8); /* Optional border for extra highlight */
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.p-dialog .p-dialog-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.p-dialog .p-dialog-header {
+    text-align: center; /* Align header text in the center */
+}
+
+.p-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Style the card inside the dialog */
+.card {
+    background-color: #f7f7f7;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: -30px;
+}
+
+.card img {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+

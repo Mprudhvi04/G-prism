@@ -1,0 +1,113 @@
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 20px;
+  background: #003087;
+  text-align: left;
+  overflow: hidden; /* Ensures content doesn't overflow */
+}
+.logo-img {
+  width: 30%;
+  height: 35px;
+  margin-top: 50px;
+}
+.text {
+  color: white;
+  margin-bottom: 80px;
+}
+.dashboard-img-wrapper {
+  display: flex;
+}
+.dashboard-img {
+  width: 70%;
+  max-width: 100%;
+}
+.right-side {
+  background-color: white;
+  height: 100%;
+}
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+}
+.gPrism-cart {
+  margin-left: 115px;
+  height: 75px;
+  margin-bottom: 10px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.btn-block {
+  width: 100%;
+}
+
+button{
+  background: #009CDE;
+  width: 330px;
+  height: 35px;
+  font-family: Maven Pro;
+  font-size: 20px;
+font-weight: 500;
+line-height: 28.2px;
+gap: 10px;
+border: white;
+border-radius: 4px 4px 4px 4px;
+opacity: 0px;
+color:rgb(255, 255, 255);
+}
+.forgot-password {
+  margin-top: 10px;
+}
+.forgot-password a {
+  color: #007bff;
+  text-decoration: none;
+}
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #003087;
+}
+
+.form-control-underline {
+  border: none;
+  border-bottom: 1px solid #22b6e4;
+  width: 100%;
+  outline: none;
+  padding: 5px 0;
+  font-size: 16px;
+}
+
+.form-control-underline:focus {
+  border-bottom: 2px solid #007bff;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group-append {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+
+}
+
+.input-group-text {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px),
+       only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+  .left-side, .right-side {
+    flex: 0 0 100%; /* Ensures both sides are full width on small screens */
+  }
+}

@@ -1,0 +1,36 @@
+<body>
+    <div class="container">
+        <div class="form-group">
+            <label>Is NFA Required?</label>
+            <input type="radio" name="nfa_required" value="yes"> Yes
+            <input type="radio" name="nfa_required" value="no"> No
+        </div>
+        <div class="form-group">
+            <label>Is NFA Available?</label>
+            <input type="radio" name="nfa_available" value="yes"> Yes
+            <input type="radio" name="nfa_available" value="no"> No
+        </div>
+        <div class="form-group">
+            <label>Upload NFA Document <span class="optional">(Optional)</span></label>
+            <div class="card flex justify-content-center">
+                <p-toast></p-toast>
+                <p-fileUpload 
+                  mode="basic" 
+                  chooseLabel="Upload" 
+                  chooseIcon="pi pi-upload"
+                  name="sapDocument[]" 
+                  url="https://www.primefaces.org/cdn/api/upload.php" 
+                  accept="image/*" 
+                  maxFileSize="1000000" 
+                  (onUpload)="onUpload($event)">
+                </p-fileUpload>
+              </div>
+        </div>
+        <div class="buttons">
+
+   
+            <button class="back-button" (click)="back.emit()">BACK</button> <!-- Emit back event -->
+            <button class="next-button" (click)="next.emit()">NEXT</button> <!-- Emit next event -->
+        </div>
+    </div>
+</body>

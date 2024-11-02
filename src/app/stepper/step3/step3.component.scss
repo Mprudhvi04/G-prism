@@ -84,3 +84,21 @@
   font-family: Maven Pro;
   font-weight: 600;
 }
+.buttons .OK {
+  background-color: #003087;
+  color: #ffffff;
+  font-family: Maven Pro;
+  font-weight: 600;
+  width: Hug (111px)px;
+height: Hug (48px)px;
+padding: 10px 40px 10px 40px;
+gap: 10px;
+border-radius: 4px 0px 0px 0px;
+opacity: 0px;
+
+}.Decline{
+  color: #E20000;
+}
+.container .buttons{
+  justify-content: center;
+}

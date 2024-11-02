@@ -1,3 +1,5 @@
+
+
 <div class="body">
   <div class="top-section">
     <h5 class="text">Create IRN</h5>
@@ -65,6 +67,9 @@
     
   </div>
 
+<div class="body">
+  <!-- ... existing stepper header code ... -->
+
   <div class="container">
     <div class="card">
       <div *ngIf="currentStep === 1">
@@ -73,15 +78,30 @@
           (updateIsNFA)="updateIsNFA($event)"
         ></app-step1>
       </div>
+      
       <div *ngIf="currentStep === 2 && !isNFA">
-        <app-step2 (back)="previousStep()" (next)="nextStep()"></app-step2>
+        <app-step2 
+          (back)="previousStep()" 
+          (next)="nextStep()"
+          (nfaAvailable)="updateNfaAvailability($event)"
+        ></app-step2>
       </div>
+      
       <div *ngIf="currentStep === (isNFA ? 2 : 3)">
-        <app-step3 (back)="previousStep()" (proceed)="nextStep()"></app-step3>
+        <app-step3 
+          [isNfaAvailable]="isNfaAvailable"
+          (back)="previousStep()" 
+          (proceed)="nextStep()"
+        ></app-step3>
       </div>
+      
       <div *ngIf="currentStep === (isNFA ? 3 : 4)">
-        <app-step4 (back)="previousStep()"></app-step4>
+        <app-step4 
+          (back)="previousStep()"
+        ></app-step4>
       </div>
     </div>
   </div>
 </div>
+</div>
+

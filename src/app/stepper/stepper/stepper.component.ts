@@ -15,7 +15,9 @@ import { NgClass, NgIf } from '@angular/common';
 export class StepperComponent {
   currentStep: number = 1;
   isNFA: boolean = false;
+  isNfaAvailable: boolean | null = null; // Add this property
   totalSteps: number = 4;
+
 
   nextStep() {
     if (this.isNFA) {
@@ -44,9 +46,12 @@ export class StepperComponent {
   updateIsNFA(isNFA: boolean) {
     this.isNFA = isNFA;
     this.totalSteps = isNFA ? 3 : 4;
-
-    if (isNFA && this.currentStep === 2) {
-      this.currentStep = 2;
-    }
   }
+
+  // Add this method to handle NFA availability updates
+  updateNfaAvailability(isAvailable: boolean) {
+    this.isNfaAvailable = isAvailable;
+    
+  }
+  
 }

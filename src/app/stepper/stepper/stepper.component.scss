@@ -3,11 +3,24 @@
   background-color: whitesmoke;
   padding: 20px;
 }
+html,
+body {
+  height: 100%; /* Ensure the body takes up the full height */
+  margin: 0; /* Remove default margin */
+}
+
+.body {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack children vertically */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height of the viewport */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
 
 .top-section {
-  padding-top: 60px;
   margin-left: 200px;
   font-size: small;
+  margin-top: 40px;
 }
 
 .text {
@@ -38,65 +51,68 @@
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   flex-direction: column;
 }
 
 .card {
- 
-  width: 80%;
+
+  gap: 60px;
+  opacity: 0px;
+
+  width: 1329px;
   min-height: fill 720px;
   padding: 20px;
   background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-
+  
+ 
 }
 .stepper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: Fixed 1, 329px;
+  gap: 29px;
+  opacity: 0px;
+  padding: 5px 0;
   width: 50%;
-  margin: 20px auto;
-  padding: 10px 0;
-  margin-left: -50px;
+
 }
 
 .step {
-  text-align: center;
+  text-align: left;
   flex: 1;
   position: relative;
 }
 
 .step:not(:last-child)::before {
-  content: '';
-  position: absolute;
+  content: "";
+  position:absolute;
   top: 13%;
-  right: -50%;
-  width: 92%;
+  right:-20%;
+  width: 109%;
   height: 2px;
   background-color: #d3d3d3;
-  z-index:0;
-
+  z-index: 0;
 }
 
 .step .circle {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  background-color: #d3d3d3; 
-  display: inline-block;
+  background-color: #d3d3d3;
+
+  display: flex;
+  align-items: center;
   margin-bottom: 5px;
   transition: background-color 0.3s ease;
 }
 
 .step.active .circle,
 .step.complete .circle {
-  background-color: #007bff; 
+  background-color: #007bff;
 }
 
 .step.complete .circle {
-  background-color: #28a745; 
+  background-color: #28a745;
 }
 
 .step .label {
@@ -120,6 +136,7 @@
 .step.active .sub-label,
 .step.complete .sub-label {
   color: #007bff;
+  
 }
 
 .step p {
@@ -128,13 +145,13 @@
   font-size: 14px;
 }
 
-.step.active {
+.step.active .sub-label {
   transform: scale(1.05); /* Slight zoom for active step */
+  border-bottom: 4px solid #009cde;
 }
 
-
 @media only screen and (max-width: 600px),
-only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+  only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
   .top-section {
     padding-top: 30px;
     margin-left: 20px;
@@ -172,12 +189,9 @@ only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: por
   }
 }
 
-
-
-
 /* Responsive Adjustments */
 @media only screen and (max-width: 600px),
-only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+  only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
   .top-section {
     padding-top: 30px;
     margin-left: 20px;
@@ -218,4 +232,3 @@ only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: por
     padding: 0 10px;
   }
 }
-

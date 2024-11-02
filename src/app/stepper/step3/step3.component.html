@@ -1,11 +1,26 @@
-<div class="container">
-  <img src="../../../assets/Frame 25.png" />
-  <p>We've successfully generated the IRN.</p>
-  <p class="subtext">Technology and office supplies.</p>
-  <p class="irn">IRN/2024-25/001</p>
-  <div class="buttons">
-    <button class="dashboard">GO TO DASHBOARD</button>
-    <button class="proceed" (click)="proceed.emit()">OK, PROCEED</button>
-    <!-- Emit proceed event -->
+<div *ngIf="isNfaAvailable !== null">
+  <div *ngIf="isNfaAvailable; else noNfaContent">
+    <!-- Content when NFA is available -->
+    <div class="container">
+      <img src="../../../assets/Frame 25.png" />
+      <p>We've successfully generated the IRN.</p>
+      <p class="subtext">Technology and office supplies.</p>
+      <p class="irn">IRN/2024-25/001</p>
+      <div class="buttons">
+        <button class="dashboard">GO TO DASHBOARD</button>
+        <button class="proceed" (click)="proceed.emit()">OK, PROCEED</button>
+      </div>
+    </div>
   </div>
+  <ng-template #noNfaContent>
+    <!-- Content when NFA is not available -->
+    <div class="container">
+      <img src="../../../assets/Frame 25.svg" />
+      <p class="Decline">IRN Declined</p>
+      <p>Please contact Admin.</p>
+      <div class="buttons">
+        <button class="OK">OK</button>
+      </div>
+    </div>
+  </ng-template>
 </div>

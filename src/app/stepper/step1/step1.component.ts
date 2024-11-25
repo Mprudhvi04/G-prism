@@ -12,25 +12,57 @@ import { NgIf } from '@angular/common';
   styleUrls: ['./step1.component.scss'],
   standalone: true,
   imports: [FileUploadModule, ToastModule, HttpClientModule, FormsModule, NgIf],
-  providers: [MessageService]
+  providers: [MessageService],
 })
 export class Step1Component {
   @Output() next = new EventEmitter<void>();
   @Output() updateIsNFA = new EventEmitter<boolean>();
+
   allocatedIRN: string = '';
+  irnName: string = '';
+  prNumber: string = '';
+  prType: string = '';
+  uploadedFile: any = null;
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService) {}
 
-  onUpload(event: any) {
-    this.messageService.add({ 
-      severity: 'info', 
-      summary: 'Success', 
-      detail: 'File Uploaded Successfully' 
-    });
-  }
-   // Method to emit the updateIsNFA event
-   updateNFA(isNFA: boolean) {
+  // Method to emit the updateIsNFA event
+  updateNFA(isNFA: boolean) {
     this.updateIsNFA.emit(isNFA);
   }
-  
+
+  // Method to handle file upload success
+  onUpload(event: any) {
+    this.messageService.add({
+      severity: 'info',
+      summary: 'Success',
+      detail: 'File Uploaded Successfully',
+    });
+  }
+
+  isFormValid(): boolean {
+    if (!this.allocatedIRN) {
+      return false;
+    }
+
+    if (!this.irnName) {
+      return false;
+    }
+
+    if (!this.prNumber) {
+      return false;
+    }
+
+    if (!this.prType) {
+      return false;
+    }
+
+    return true;
+  }
+
+  Next() {
+    if (this.isFormValid()) {
+      this.next.emit();
+    }
+  }
 }

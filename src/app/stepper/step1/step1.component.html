@@ -1,55 +1,117 @@
 <div class="container">
+  <div class="col-md-12 step1">
 
-
-  <div class="form-group" *ngIf="allocatedIRN !== 'NFA'">
-    <label style="color: #0033a0">IRN Name<span style="color: red">*</span></label>
-    <input type="text" id="irn-name" placeholder="Enter Name" />
-  </div>
-  <div class="form-group">
-    <label>Allocated IRN to?</label>
-    <div class="radio-group">
-      <input type="radio" id="pr" name="allocated-irn" value="PR" (change)="allocatedIRN = 'PR'; updateNFA(false)" />
-      <label for="pr">PR</label>
-      <input type="radio" id="nfa" name="allocated-irn" value="NFA" (change)="allocatedIRN = 'NFA'; updateNFA(true)" />
-      <label for="nfa">NFA</label>
+    <div class="form-group" *ngIf="allocatedIRN !== 'NFA'">
+      <label style="color: #0033a0">
+        IRN Name<span style="color: red">*</span>
+      </label>
+      <input
+        type="text"
+        id="irn-name"
+        placeholder="Enter Name"
+        [(ngModel)]="irnName"
+        name="irnName"
+        required
+      />
     </div>
-  </div>
 
-  <div class="form-group" *ngIf="allocatedIRN !== 'NFA'">
-    <label style="color: #0033a0" for="pr-number">PR Number<span style="color: red">*</span></label>
-    <input type="text" id="pr-number" placeholder="Enter PR Number" />
-  </div>
 
-  <div class="form-group" *ngIf="allocatedIRN !== 'NFA'">
-    <label style="color: #0033a0">PR Type?</label>
-    <div class="radio-group">
-      <input type="radio" id="sap" name="pr-type" value="SAP" />
-      <label for="sap">SAP</label>
-      <input type="radio" id="non-sap" name="pr-type" value="Non SAP" />
-      <label for="non-sap">Non SAP</label>
+    <div class="form-group">
+      <label>Allocated IRN to?</label>
+      <div class="radio-group">
+        <input
+          type="radio"
+          id="pr"
+          name="allocated-irn"
+          value="PR"
+          (change)="allocatedIRN = 'PR'; updateNFA(false)"
+          [(ngModel)]="allocatedIRN"
+        />
+        <label for="pr">PR</label>
+        <input
+          type="radio"
+          id="nfa"
+          name="allocated-irn"
+          value="NFA"
+          (change)="allocatedIRN = 'NFA'; updateNFA(true)"
+          [(ngModel)]="allocatedIRN"
+        />
+        <label for="nfa">NFA</label>
+      </div>
     </div>
-  </div>
 
-  <!-- rest of the form remains the same -->
 
-  <div class="form-group"> <label style="color: #0033a0">Upload SAP Document<span> (Optional) </span></label>
-    <div class="button-group">
-    <div class="card flex justify-content-center">
-      <p-toast></p-toast>
-      <p-fileUpload 
-        mode="basic" 
-        chooseLabel="Upload" 
-        chooseIcon="pi pi-upload"
-        name="sapDocument[]" 
-        url="https://www.primefaces.org/cdn/api/upload.php" 
-        accept="image/*" 
-        maxFileSize="1000000" 
-        (onUpload)="onUpload($event)">
-      </p-fileUpload>
+    <div class="form-group" *ngIf="allocatedIRN !== 'NFA'">
+      <label style="color: #0033a0" for="pr-number">
+        PR Number<span style="color: red">*</span>
+      </label>
+      <input
+        type="text"
+        id="pr-number"
+        placeholder="Enter PR Number"
+        [(ngModel)]="prNumber"
+        name="prNumber"
+        required
+      />
     </div>
+
+
+    <div class="form-group" *ngIf="allocatedIRN !== 'NFA'">
+      <label style="color: #0033a0">PR Type?</label>
+      <div class="radio-group">
+        <input
+          type="radio"
+          id="sap"
+          name="pr-type"
+          value="SAP"
+          [(ngModel)]="prType"
+          required
+        />
+        <label for="sap">SAP</label>
+        <input
+          type="radio"
+          id="non-sap"
+          name="pr-type"
+          value="Non SAP"
+          [(ngModel)]="prType"
+          required
+        />
+        <label for="non-sap">Non SAP</label>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label style="color: #0033a0">
+        Upload SAP Document<span> (Optional) </span>
+      </label>
+      <div class="button-group">
+        <div class="card flex justify-content-center">
+          <p-toast></p-toast>
+          <p-fileUpload
+            mode="basic"
+            chooseLabel="Upload"
+            chooseIcon="pi pi-upload"
+            name="sapDocument[]"
+            url="https://www.primefaces.org/cdn/api/upload.php"
+            accept="image/*"
+            maxFileSize="1000000"
+            (onUpload)="onUpload($event)"
+            [(ngModel)]="uploadedFile"
+            name="uploadedFile"
+          >
+          </p-fileUpload>
+        </div>
+
     
-    <button class="next-button" (click)="next.emit()">NEXT</button>
-  </div></div>
-
- 
+        <button
+          class="next-button"
+          (click)="Next()"
+          [disabled]="!isFormValid()"
+        >
+          NEXT
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

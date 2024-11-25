@@ -1,0 +1,84 @@
+
+<div class="container-fluid">
+  <div class="row  text-center">
+  <div class="col-md-12 header-card">
+    
+      <div
+        class="col card d-flex align-items-center justify-content-center mx-2"
+        style="height: 180px"
+      >
+        <img src="../../../assets/Frame 109.svg" />
+        HOLD IRN's
+        <p class="num">25</p>
+      </div>
+      <div
+        class="col card d-flex align-items-center justify-content-center mx-2"
+        style="height: 180px"
+      >
+        <img src="../../../assets/Frame 110.svg" />
+        Declined IRN's
+        <p class="num">25</p>
+      </div>
+      <div
+        class="col card d-flex align-items-center justify-content-center mx-2"
+        style="height: 180px"
+      >
+        <img src="../../../assets/Frame 111.svg" />
+        Completed IRN's
+        <p class="num">100</p>
+      </div>
+    </div>
+    <div class="card d-flex  p-4 search-card">
+      <div class="d-flex justify-content-between align-items-center">
+        <h4>List of IRN's (120)</h4>
+        <div class="search-input">
+          <input
+            type="search"
+            class="form-control"
+            placeholder="Search IRN/PR/Status ..."
+            aria-label="Search"
+          />
+          <button class="btn" type="submit">Search</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="outer-card card d-flex" style="border: none;margin-top: 3px; padding: 20px">
+      <div class="inner-card card-body card-head">
+        <table class="table mb-0">
+          <thead>
+            <tr>
+              <th>IRN Name & Number</th>
+              <th>Created on</th>
+              <th>Buyer</th>
+              <th>Mentor</th>
+
+              <th>IRN Status</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <div class="inner-card card-body card-data">
+        <table class="table mb-0">
+          <tbody>
+            <tr>
+              <td class="irn">
+                <img src="../../assets/box-time.svg" />Technology and Office
+                Supplies<br />
+                <p class="irn-num">IRN/2024-25/001</p>
+              </td>
+              <td>17/Sep/2024</td>
+              <td>Buyer 1</td>
+              <td>Mentor 1</td>
+              <td><button class="btn" (click)="navigatetoPrdetails()">IRN Created</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

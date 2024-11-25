@@ -3,6 +3,8 @@ import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';  
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { NgIf } from '@angular/common';
+import { Router } from '@angular/router';
+import { fakeAsync } from '@angular/core/testing';
 @Component({
   selector: 'app-step4',
   standalone: true,
@@ -11,7 +13,16 @@ import { NgIf } from '@angular/common';
   styleUrls: ['./step4.component.scss']  
 })
 export class Step4Component {
-  isModalVisible = false;
+  isModalVisible:boolean = false;
+  ismentorRequired:boolean=true;
+
+  constructor(private router:Router){}
+  navigateToBuyerPage(){
+    if(this.isModalVisible){
+      this.isModalVisible=false;
+      this.router.navigate(['/buyer-page']);
+    }
+  }
 
   confirm() {
       this.isModalVisible = true;
@@ -22,12 +33,15 @@ export class Step4Component {
       }
   }
 
-  closeModal() {
-      this.isModalVisible = false;
-      const modal = document.getElementById('confirmationModal');
-      if (modal) {
-          modal.classList.remove('show');
-          modal.style.display = 'none';
-      }
+  // closeModal() {
+  //     this.isModalVisible = false;
+  //     const modal = document.getElementById('confirmationModal');
+  //     if (modal) {
+  //         modal.classList.remove('show');
+  //         modal.style.display = 'none';
+  //     }
+  // }
+  onMentorRequiredChange(value:string){
+    this.ismentorRequired=value==='yes'
   }
 }

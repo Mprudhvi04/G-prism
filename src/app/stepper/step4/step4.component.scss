@@ -1,3 +1,12 @@
+.container{
+  padding: 30px;
+}
+.step4 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;  /* Adjust the gap between form groups */
+}
+
 .form-group {
     margin-bottom: 10px;
     font-size: small;
@@ -52,7 +61,7 @@ span {
 
 .btn{
     float: right;
-
+width: 90px;
     background-color: #0033a0;
     color: #fff;
     text-align: center;
